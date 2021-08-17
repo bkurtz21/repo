@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block main %}
+<section class="pricing py-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="card-group">
+
+        {% include "tier_1.html" %}
+        {% include "tier_2.html" %}
+
+        {# Tier 3 is now controlled by a feature flag! #}
+        {% if is_tier_3_enabled == True %}
+          {% include "tier_3.html" %}
+        {% endif %}
+
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

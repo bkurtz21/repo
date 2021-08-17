@@ -1,0 +1,13 @@
+{
+  "name": "Flag Test by Bryan Kurtz",
+  "version": "1.0.0",
+  "description": "Space Camp lab app",
+  "author": "Dark Launchers",
+  "scripts": {
+    "start": "pip3 install -r requirements && python3 server.py",
+    "restart": "npm start"
+  },
+  "engines": {
+    "node": "12.x"
+  }
+}

@@ -1,0 +1,30 @@
+body {
+  background: #000 url("https://cdn.glitch.com/d62580d1-04a7-4eb1-9a98-30c4d9a7fd50%2FLD_StarsBackground_small.jpg?v=1579637528651");
+  margin:0;
+  padding:0 0 40px 0;
+}
+header > h1 {
+  color: white;
+  font-family: "ZCOOL QingKe HuangYou", cursive;
+  font-size: 80px;
+  margin-top: 30px;
+}
+.card-group,
+.card-deck {
+  width: 100%;
+}
+.card {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+footer {
+  background: url(https://cdn.glitch.com/d62580d1-04a7-4eb1-9a98-30c4d9a7fd50%2FLaunchDarkly_Horizontal_Primary_Logo_on_Dark_no_padding.svg?v=1579637253972) no-repeat;
+  height: 30px;
+  background-position-x: center;
+  margin-bottom: 50px;
+}
+#canvas {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index:-1;
+}
