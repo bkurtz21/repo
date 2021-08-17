@@ -42,14 +42,12 @@ that will create an editable copy of the Python web app.
 1. After you install the Python SDK into requirements, you can now initialize it in the server.py file
 2. Click server.py and add the following line "import ldclient"
 3. Next, specifiy your SDK key to connect to LaunchDarkly by using 
-`
- ldclient.set_sdk_key(os.getenv('LD_SDK_KEY'))
- `
+
+         ldclient.set_sdk_key(os.getenv('LD_SDK_KEY'))
 
 4. Additionally, add 
-`
-  ld_client = ldclient.get()
-  `
+
+        ld_client = ldclient.get()
   
 # Create Feature Flag in LaunchDarkly #
 
@@ -64,49 +62,49 @@ that will create an editable copy of the Python web app.
 
 1. Navigate to server.py file in Glitch folder
 2. Designate route to handler by adding following code
-`
-  @app.route('/')
-  def pricing():
-  """Displays the pricing page."""
+
+        @app.route('/')
+        def pricing():
+        """Displays the pricing page."""
   
-  user {
-  "key": "anon",
-  "anonymous": True
-  }
+          user {
+          "key": "anon",
+          "anonymous": True
+              }
   
-    is_tier_3_enabled = ld_client.variation('pricing-tier-3', user, False)
-    return render_template('pricing.html', is_tier_3_enabled=is_tier_3_enabled) `
+            is_tier_3_enabled = ld_client.variation('pricing-tier-3', user, False)
+            return render_template('pricing.html', is_tier_3_enabled=is_tier_3_enabled)` 
     
-3. The evaluated feature flag is is_tier_3_enabled.
+3. The evaluated feature flag  is (is_tier_3_enabled)
 
 # Update Pricing Page to show new pricing tier based on Feature Flag #
 
 1. Navigate to views/pricing.html
 2. Update your template to look like this
-`
-{% extends "base.html" %}
-{% block main %}
-<section class="pricing py-5">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="card-group">
 
-        {% include "tier_1.html" %}
-        {% include "tier_2.html" %}
+        {% extends "base.html" %}
+        {% block main %}
+        <section class="pricing py-5">
+          <div class="container">
+          <div class="row justify-content-center">
+            <div class="card-group">
 
-        {# Tier 3 is now controlled by a feature flag! #}
-        {% if is_tier_3_enabled == True %}
-          {% include "tier_3.html" %}
-        {% endif %}
+              {% include "tier_1.html" %}
+              {% include "tier_2.html" %}
 
-      </div>
-    </div>
-  </div>
-</section>
-{% endblock %}
-`
+                {# Tier 3 is now controlled by a feature flag! #}
+                {% if is_tier_3_enabled == True %}
+                    {% include "tier_3.html" %}
+                    {% endif %}
+
+            </div>
+          </div>
+        </div>
+        </section>
+        {% endblock %}
+
 # Turn on Feature Flag within Web App #
-1. Navigate to LaunchDarkly account and your recently created Flag from previous steps
+1. Navigate to LaunchDarkly account and your recently created Flag 
 2. Click the Targeting toggle to togle the flag to on
 3. Enter a comment
 4. Click Turn On
